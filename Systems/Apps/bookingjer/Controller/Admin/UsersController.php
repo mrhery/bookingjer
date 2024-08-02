@@ -104,7 +104,7 @@ class UsersController extends Controller {
 		if(count($u) > 0){			
 			users::deleteBy(["id" => $id]);
 			
-			Alert::set("success", "User information has been saved.");
+			Alert::set("success", "User information has been removed.");
 			$this->redirect(PORTAL . "admin/users");
 		}else{
 			Alert::set("error", "Fail updating sleected user information. No user found.");

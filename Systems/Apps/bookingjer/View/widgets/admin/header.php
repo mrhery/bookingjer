@@ -33,7 +33,7 @@ if(empty($current)){
 	</button>
 
 	<div class="collapse navbar-collapse" id="collapsibleNavbar">
-		<ul class="navbar-nav">
+		<ul class="navbar-nav mr-auto">
 		<?php
 			foreach($menus as $k => $m){
 				if($current == $k){
@@ -52,8 +52,17 @@ if(empty($current)){
 			}
 		?>
 		</ul>
+		
+		<ul class="navbar-nav my-2 my-lg-0">
+			<li class="nav-item">
+				<a class="nav-link" href="<?= PORTAL ?>admin/logout">
+					<span class="fa fa-sign-out"></span>
+					Logout
+				</a>
+			</li>
+		</ul>
 	</div>
 </nav> 
 
-<div class="container pt-3">
+<div class="container pt-3 pb-5">
 

@@ -22,4 +22,9 @@ class LoginController extends Controller {
 			$this->redirect(PORTAL . "admin/login");
 		}
 	}
+	
+	public function logout (){
+		Session::destroy("admin");
+		$this->redirect(PORTAL . "admin/login");
+	}
 }

@@ -24,3 +24,14 @@ DB::prep()->table("users", function(Table $t){
 	$t->time("updated");
 	$t->varchar("created");
 });
+
+DB::prep()->table("businesses", function(Table $t){
+	$t->varchar("name");
+	$t->email("email");
+	$t->phone("phone");
+	$t->varchar("address");
+	$t->integer("owner");
+	$t->integer("user");
+	$t->time("updated");
+	$t->varchar("created");
+});

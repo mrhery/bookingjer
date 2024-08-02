@@ -29,8 +29,12 @@ if(Session::exist("admin")){
 	$this->page->setFooter('widgets/admin/footer.php');
 	
 	Route::create([
-		"admin|admin/dashboard"					=> "Admin/DashboardController::index",
-		"admin/businesses"		=> "Admin/BusinessController::index",
+		"admin|admin/dashboard"			=> "Admin/DashboardController::index",
+		
+		"admin/businesses"				=> "Admin/BusinessController::index",
+		"admin/businesses/add"			=> "Admin/BusinessController::add",
+		"admin/businesses/edit:param"	=> "Admin/BusinessController::edit",
+		"admin/businesses/delete:param"	=> "Admin/BusinessController::delete",
 		
 		"admin/users"				=> "Admin/UsersController::index",
 		"admin/users/add"			=> "Admin/UsersController::add",
@@ -38,6 +42,7 @@ if(Session::exist("admin")){
 		"admin/users/delete:param"	=> "Admin/UsersController::delete",
 		
 		"admin/forms"			=> "Admin/FormsController::index",
+		"admin/logout"			=> "Admin/LoginController::logout",
 	]);
 	
 	//$this->page->render();
