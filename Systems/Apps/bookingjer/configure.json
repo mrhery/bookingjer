@@ -1,0 +1,25 @@
+{
+	"databases": [
+		{
+			"host": "127.0.0.1",
+			"database": "bookingjer",
+			"username": "root",
+			"password": ""
+		}
+	],
+	"constants": [
+		{
+			"PORTAL": 	"http://localhost/bookingjer/"
+		},
+		{
+			"IV": "+g3nQDA0kb1Q7jdTVtE+rg=="
+		},
+		{
+			"PASS": "86b0322df0fe37d7931d355c1d3d1f14"
+		}
+	],
+	"miscs": [
+		"asset_loader.php"
+	],
+	"headers": []
+}
