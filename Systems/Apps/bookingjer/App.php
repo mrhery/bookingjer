@@ -1,6 +1,15 @@
 <?php
 //A journey start with a step
 
+if(count(users::list()) < 1){
+	users::insertInto([
+		"name"	=> "hery",
+		"phone"	=> "0187824900",
+		"email"	=> "hery@herytechnology.com",
+		"password"	=> "21b935f64a6a2b9f70876c6a4703cdfeac7ea5a11ab6571075b85ba159ed3b95"
+	]);
+}
+
 $this->page->addTopTag('
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
