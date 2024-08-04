@@ -50,7 +50,11 @@ if(Session::exist("admin")){
 		"admin/users/edit:param"	=> "Admin/UsersController::edit",
 		"admin/users/delete:param"	=> "Admin/UsersController::delete",
 		
-		"admin/forms"			=> "Admin/FormsController::index",
+		"admin/forms"				=> "Admin/FormsController::index",
+		"admin/forms/add"			=> "Admin/FormsController::add",
+		"admin/forms/edit:param"	=> "Admin/FormsController::edit",
+		"admin/forms/delete:param"	=> "Admin/FormsController::delete",
+		
 		"admin/logout"			=> "Admin/LoginController::logout",
 	]);
 	

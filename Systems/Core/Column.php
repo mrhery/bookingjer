@@ -127,6 +127,10 @@ class Column {
 				$sql .= $name . " DATE ";
 			break;
 			
+			case "datetime":
+				$sql .= $name . " DATETIME ";
+			break;
+			
 			case "timestamp":
 				$sql .= $name . " timestamp ";
 				

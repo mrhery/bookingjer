@@ -75,6 +75,15 @@ class Table {
 		return $this->columns[$name];
 	}
 	
+	public function datetime($name){
+		$col = new Column($name, $this);
+		$col->type("datetime");
+		
+		$this->columns[$name] = $col;
+		
+		return $this->columns[$name];
+	}
+	
 	public function time($name, $format = "H:i:s"){
 		$col = new Column($name, $this);
 		$col->type("timestamp");
@@ -137,7 +146,8 @@ class Table {
 			}
 		}
 		
-		// echo $sql;
+		// echo $sql . "<br /><br />";
+		
 		
 		return $sql;
 	}
