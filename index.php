@@ -14,6 +14,6 @@ define("ASSET", __DIR__ . "/assets/");
 	"BookingJer",	
 	"bookingjer"			
 ))->run([
-	"reload" => false,	
+	"reload" => true,	
 ]);
 
