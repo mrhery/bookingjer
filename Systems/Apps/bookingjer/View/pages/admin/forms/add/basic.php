@@ -6,22 +6,11 @@
 		Description:
 		<textarea class="form-control" name="descrtipion" placeholder="Description"></textarea>
 		
-		<div class="text-right mt-3">
-			<button class="btn btn-dark btn-sm to-availibility">
+		<div class="mt-3">
+			<button type="button" class="btn btn-dark to-availibility float-right">
 				Next <span class="fa fa-arrow-right"></span>
 			</button>
 		</div>
 	</div>
 </div>
 
-<script>
-$(".date-range-picker").hide();
-
-$("[name=hasTimeRange]").on("change", function(){
-	if($(this).val() == "1"){
-		$(".date-range-picker").show();
-	}else{
-		$(".date-range-picker").hide();
-	}
-});
-</script>

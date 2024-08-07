@@ -26,8 +26,8 @@ if(empty($current)){
 
 ?>
 
-<nav class="navbar navbar-expand-md bg-dark navbar-dark">
-	<a class="navbar-brand" href="#">Navbar</a>
+<nav class="navbar navbar-expand-md bg-light navbar-light shadow sticky-top">
+	<a class="navbar-brand" href="<?= PORTAL ?>admin">Jer</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
 		<span class="navbar-toggler-icon"></span>
 	</button>
@@ -37,13 +37,13 @@ if(empty($current)){
 		<?php
 			foreach($menus as $k => $m){
 				if($current == $k){
-					$active = "active";
+					$active = "text-primary";
 				}else{
 					$active = "";
 				}
 		?>
-			<li class="nav-item <?= $active ?>">
-				<a class="nav-link" href="<?= PORTAL ?>admin/<?= $k ?>">
+			<li class="nav-item ">
+				<a class="nav-link <?= $active ?>" href="<?= PORTAL ?>admin/<?= $k ?>">
 					<span class="<?= $m->icon ?>"></span>
 					<?= $m->name ?>
 				</a>

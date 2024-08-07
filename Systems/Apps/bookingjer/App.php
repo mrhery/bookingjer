@@ -19,11 +19,13 @@ $this->page->addTopTag('
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
 <link rel="stylesheet" href="'. PORTAL .'assets/vendor/font-awesome/css/font-awesome.min.css" />
+<link rel="stylesheet" href="'. PORTAL .'assets/calendar.css?v='. time() .'" />
 
 <link rel="stylesheet" href="'. PORTAL .'assets/vendor/datatable/dataTables.min.css" />
 <script src="'. PORTAL .'assets/vendor/datatable/dataTables.min.js"></script>
 
 <script src="'. PORTAL .'assets/vendor/googlechart.js"></script>
+<script src="'. PORTAL .'assets/calendar-bs-jquery.js"></script>
 ');
 
 Page::append(<<<script

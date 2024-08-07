@@ -6,7 +6,7 @@
 		</label><br />
 		
 		<div class="payment-detail">
-			Amount:
+			Amount (RM):
 			<input type="text" class="form-control" name="paymentAmount" placeholder="0.00" /><br />
 			
 			Payment Type:
@@ -28,15 +28,73 @@
 			<option value="0">No</option>
 			<option value="1">Yes</option>
 		</select><br />
+		
+		<div class="approval-detail">
+			Payment Term:
+			<select class="form-control" name="paymentApproval">
+			<?php
+				foreach(FormHelper::allPaymentApproval() as $k => $t){
+				?>
+				<option value="<?= $k ?>"><?= $t ?></option>
+				<?php
+				}
+			?>
+			</select>
+		</div>
 	</div>
 </div>
 
+<div class="mt-5">
+	<button type="button" class="btn btn-dark to-basic float-left">
+		<span class="fa fa-arrow-left"></span> Back to Availability 
+	</button>
+</div>
+
 <script>
+let payment_enabled = false;
+let required_approval = false;
+let payment_approval = 0;
+
+$(".payment-detail").hide();
+$(".approval-detail").hide();
+
 $("#enablePayment").on("change", function(){
-	if($(this).is("checked")){
+	if($(this).is(":checked")){
 		$(".payment-detail").show();
+		payment_enabled = true;
+		
+		if(required_approval){
+			$(".approval-detail").show();
+		}else{
+			$(".approval-detail").hide();
+		}
 	}else{
 		$(".payment-detail").hide();
+		$(".approval-detail").hide();
+		payment_enabled = false;
+	}
+});
+
+$("[name=requireApproval]").on("change", function(){
+	if($(this).val() == "1"){
+		required_approval = true;
+		
+		if(payment_enabled){
+			$(".approval-detail").show();
+		}else{
+			$(".approval-detail").hide();
+		}
+	}else{
+		$(".approval-detail").hide();
+		required_approval = false;
+	}
+});
+
+$("[name=paymentApproval]").on("change", function(){
+	if($(this).val() == "1"){
+		payment_approval = 1;
+	}else{
+		payment_approval = 0;
 	}
 });
 </script>
