@@ -48,6 +48,15 @@
 	<button type="button" class="btn btn-dark to-basic float-left">
 		<span class="fa fa-arrow-left"></span> Back to Availability 
 	</button>
+	
+	
+	<button type="button" class="btn btn-success save-btn float-right" data-mode="publish">
+		<span class="fa fa-save"></span> Save & Publish
+	</button>
+	
+	<button type="button" class="btn btn-info save-btn float-right mr-3" data-mode="draft">
+		<span class="fa fa-save"></span> Save a Draft
+	</button>
 </div>
 
 <script>

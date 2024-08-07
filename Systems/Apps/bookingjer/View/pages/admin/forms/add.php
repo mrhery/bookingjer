@@ -74,4 +74,6 @@ $(document).on("click", ".to-payment", function(){
 	$(".tab-pane").removeClass("active");
 	$("#payment").addClass("active");
 });
+
+$('[data-toggle="tooltip"]').tooltip();  
 </script>
