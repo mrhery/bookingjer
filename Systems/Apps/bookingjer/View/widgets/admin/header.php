@@ -64,5 +64,5 @@ if(empty($current)){
 	</div>
 </nav> 
 
-<div class="container pt-3 pb-5">
+<div class="container-fluid pt-3 pb-5">
 
