@@ -107,13 +107,13 @@ function prepareFormPreview(){
 		// month: 7,
 		// year: 2024,
 		// singleDate: !obj.multipleDate,
-		disableBackDated: !obj.enableBackDated,
-		// selectStart: 2,
-		// disabledDates: ["2024-08-10"],
+		//disableBackDated: !obj.enableBackDated,
+		//selectStart: 2,
+		//disabledDates: ["2024-08-15"],
 		// selectedDates: ["2024-08-11"],
 		// enabledDates: ["2024-08-08", "2024-08-09", "2024-08-10"],
-		// enabledStart: "2024-08-04",
-		// enabledEnd: "2024-08-20",
+		enabledStart: "2024-08-04",
+		enabledEnd: "2024-08-20",
 		onSelectDate: function(date, selected_dates){
 			// console.log(selected_dates);
 			//$("[name=available_dates]").val(selected_dates.join(","));
