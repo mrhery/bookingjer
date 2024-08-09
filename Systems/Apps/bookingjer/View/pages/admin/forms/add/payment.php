@@ -7,10 +7,10 @@
 		
 		<div class="payment-detail">
 			Amount (RM):
-			<input type="text" class="form-control" name="paymentAmount" placeholder="0.00" /><br />
+			<input type="text" class="form-control" id="paymentAmount" name="paymentAmount" placeholder="0.00" /><br />
 			
 			Payment Type:
-			<select class="form-control" name="paymentType">
+			<select class="form-control" id="paymentType" name="paymentType">
 			<?php
 				foreach(FormHelper::allPaymentType() as $k => $t){
 				?>
@@ -24,14 +24,14 @@
 
 	<div class="col-6">	
 		Require Approval?
-		<select class="form-control" name="requireApproval">
+		<select class="form-control" id="requireApproval" name="requireApproval">
 			<option value="0">No</option>
 			<option value="1">Yes</option>
 		</select><br />
 		
 		<div class="approval-detail">
 			Payment Term:
-			<select class="form-control" name="paymentApproval">
+			<select class="form-control" id="paymentApproval" name="paymentApproval">
 			<?php
 				foreach(FormHelper::allPaymentApproval() as $k => $t){
 				?>
@@ -45,18 +45,19 @@
 </div>
 
 <div class="mt-5">
-	<button type="button" class="btn btn-dark to-basic float-left">
-		<span class="fa fa-arrow-left"></span> Back to Availability 
-	</button>
-	
-	
-	<button type="button" class="btn btn-success save-btn float-right" data-mode="publish">
-		<span class="fa fa-save"></span> Save & Publish
-	</button>
-	
-	<button type="button" class="btn btn-info save-btn float-right mr-3" data-mode="draft">
-		<span class="fa fa-save"></span> Save a Draft
-	</button>
+	<div class="row">
+		<div class="col-6">
+			<button type="button" class="btn btn-dark to-availibility float-left">
+				<span class="fa fa-arrow-left"></span> Back to Availability 
+			</button>
+		</div>
+		
+		<div class="col-6 text-right">	
+			<button type="button" class="btn btn-dark to-preview float-right">
+				<span class="fa fa-eye"></span> Preview
+			</button>
+		</div>
+	</div>
 </div>
 
 <script>

@@ -48,6 +48,13 @@ header .calendar-current-date {
 	color: white;
 }
 
+.calendar-dates-item > tr > td.disabled {
+	background-color: #000000;
+	color: white;
+	cursor: not-allowed;
+}
+
+
 .calendar-dates-header > tr > th {
 	text-align: center;
 }

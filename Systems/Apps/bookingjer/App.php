@@ -25,7 +25,7 @@ $this->page->addTopTag('
 <script src="'. PORTAL .'assets/vendor/datatable/dataTables.min.js"></script>
 
 <script src="'. PORTAL .'assets/vendor/googlechart.js"></script>
-<script src="'. PORTAL .'assets/calendar-bs-jquery.js"></script>
+<script src="'. PORTAL .'assets/calendar-bs-jquery.js?v='. time() .'"></script>
 ');
 
 Page::append(<<<script

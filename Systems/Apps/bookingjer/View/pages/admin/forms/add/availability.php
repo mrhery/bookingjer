@@ -1,35 +1,68 @@
 
+<div class="row mb-5">
+	<div class="col-md-6 mb-2">
+		<label for="formPublic" class="form-control mb-3">
+			<input type="checkbox" id="formPublic" name="formPublic" /> Allow public listing 
+			
+			<span class="fa fa-info" data-toggle="tooltip" title="Allow your form to be listed in our public form listing."></span>
+		</label>
+		
+		<label for="enableBackDated" class="form-control mb-3">
+			<input type="checkbox" id="enableBackDated" name="enableBackDated" /> Enable Back Dated
+			
+			<span class="fa fa-info" data-toggle="tooltip" title="Allow user to choose date before current date."></span>
+		</label>
+		
+		<label for="multipleDate" class="form-control">
+			<input type="checkbox" id="multipleDate" name="multipleDate" /> Enable Multiple Date Selection
+			
+			<span class="fa fa-info" data-toggle="tooltip" title="Allow user to select multiple date on the calendar."></span>
+		</label>
+	</div>
+	
+	<div class="col-md-6">
+		Day(s) before book (0 - can book today):
+		<input type="number" class="form-control" id="dayBefore" min="0" placeholder="Today" /> <br />
+		
+		Quantity (0 for unlimited):
+		<input type="number" class="form-control" id="quantity" min="0" placeholder="Unlimited" />
+	</div>
+</div>
 
 <div class="row">
 	<div class="col-md-6 mb-3">
-		Form Available:
-		<select class="form-control" name="hasTimeRange">
+		<h4>Form Available Date</h4>
+		<hr />
+		
+		<select class="form-control" name="hasTimeRange" id="hasTimeRange">
 			<option value="0">Always</option>
 			<option value="1">Date Range</option>
-			<option value="2">On Selected Date</option>
+			<option value="2">Select Date</option>
 		</select><br />
 		
 		<div class="date-range-picker">
 			Start:
-			<input type="date" class="form-control" name="startDatetime" value="<?= date("Y-m-d") ?>" /><br />
+			<input type="date" class="form-control" id="startDatetime" name="startDatetime" value="<?= date("Y-m-d") ?>" /><br />
 			
 			Expired:
-			<input type="date" class="form-control" name="expiredDatetime" value="<?= date("Y-m-d") ?>" /><br />
+			<input type="date" class="form-control" id="expiredDatetime" name="expiredDatetime" value="<?= date("Y-m-d") ?>" /><br />
 		</div>
 		
 		<div id="available-calendar"></div>
-		<input type="hidden" name="available_dates" /> 
+		<input type="hidden" id="available_dates" name="available_dates" /> 
 	</div>
 	
 	<div class="col-md-6">
-		Form Available Dete:
-		<select class="form-control" name="hasUnavailable">
-			<option value="0">No</option>
-			<option value="1">Yes</option>
+		<h4>Form Unavailable Date</h4>
+		<hr />
+		
+		<select class="form-control" id="hasUnavailable" name="hasUnavailable">
+			<option value="0">None</option>
+			<option value="1">Select Date</option>
 		</select><br />
 		
 		<div id="unavailable-calendar"></div>
-		<input type="hidden" name="unavailable_dates" /> 
+		<input type="hidden" id="unavailable_dates" name="unavailable_dates" /> 
 	</div>
 </div>
 
