@@ -92,7 +92,10 @@ function prepareCalendar(id, action = {}){
 	let tDate = new Date().getDate();
 	let tInt = parseInt(tYear + "" + (tMonth < 10 ? "0" + tMonth : tMonth) + "" + (tDate < 10 ? "0" + tDate : tDate));
 	
-	const manipulate = () => {		
+	let calObj = {};
+	
+	calObj.manipulate = (newObj) => {
+		
 		let dayone = new Date(year, month, 1).getDay();
 		let lastdate = new Date(year, month + 1, 0).getDate();
 		let dayend = new Date(year, month, lastdate).getDay();
@@ -282,33 +285,45 @@ function prepareCalendar(id, action = {}){
 		$day.html(lit);
 	}
 
-	manipulate();
+	calObj.manipulate();
 
 	$(document).on("click", id + " > table > tbody > tr > .select-date", function(){
 		if($(this).hasClass("disabled")){
 			alert("This date is disabled. Please pick another date.");
 		}else{
 			if(action["singleDate"] != undefined){
-				$(id + " > table > tbody > tr > .select-date").removeClass("selected");
-				selected_dates = {};
+				console.log("singleDate", action["singleDate"]);
 				
-				if($(this).hasClass("selected")){
+				if(action["singleDate"]){
+					$(id + " > table > tbody > tr > .select-date").removeClass("selected");
+					selected_dates = {};
 					
+					if($(this).hasClass("selected")){
+						
+					}else{
+						$(this).addClass("selected");
+						selected_dates[$(this).data("real-date")] = true;
+					}
 				}else{
-					$(this).addClass("selected");
-					selected_dates[$(this).data("real-date")] = true;
-				}				
+					if($(this).hasClass("selected")){
+						$(this).removeClass("selected");
+						
+						delete selected_dates[$(this).data("real-date")];
+					}else{
+						$(this).addClass("selected");
+						selected_dates[$(this).data("real-date")] = true;
+					}
+				}
 			}else{
 				if($(this).hasClass("selected")){
 					$(this).removeClass("selected");
 					
 					delete selected_dates[$(this).data("real-date")];
 				}else{
-					$(this).addClass("selected");
+					$(this).addClass("selected");	
 					selected_dates[$(this).data("real-date")] = true;
 				}
 			}
-			
 			
 			if(action["onSelectDate"] != undefined){
 				action["onSelectDate"]($(this).data("real-date"), Object.keys(selected_dates))
@@ -324,7 +339,7 @@ function prepareCalendar(id, action = {}){
 			year -= 1;
 		}
 		
-		manipulate();
+		calObj.manipulate();
 	});
 
 	$(document).on("click", id + " > header > .calendar-navigation > .calendar-calendar-next", function(){
@@ -335,7 +350,7 @@ function prepareCalendar(id, action = {}){
 			year += 1;
 		}
 		
-		manipulate();
+		calObj.manipulate();
 	});
 	
 	function getDatesInRange(startDate, endDate) {
@@ -354,4 +369,6 @@ function prepareCalendar(id, action = {}){
 
 		return dateArray;
 	}
+	
+	return calObj;
 }

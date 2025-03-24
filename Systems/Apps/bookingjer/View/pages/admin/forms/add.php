@@ -132,4 +132,58 @@ $(document).on("click", ".to-preview", function(){
 });
 
 $('[data-toggle="tooltip"]').tooltip();  
+
+let obj = getFormSetting();
+let cal = prepareCalendar("#booking-calendar", {
+	// month: 7,
+	// year: 2024,
+	singleDate: !obj.multipleDate,
+	//disableBackDated: !obj.enableBackDated,
+	//selectStart: 2,
+	//disabledDates: ["2024-08-15"],
+	// selectedDates: ["2024-08-11"],
+	// enabledDates: ["2024-08-08", "2024-08-09", "2024-08-10"],
+	// enabledStart: "2024-08-04",
+	// enabledEnd: "2024-08-20",
+	onSelectDate: function(date, selected_dates){
+		// console.log(selected_dates);
+		//$("[name=available_dates]").val(selected_dates.join(","));
+	}
+});
+
+function prepareFormPreview(){
+	obj = getFormSetting();	
+	
+	console.log(obj);
+	
+	$("#form-title").text(obj.title);
+	$("#form-description").text(obj.description);
+	
+	if(obj.quantity > 0){
+		$("#form-quantityInfo").show();
+		$("#form-quantity").text(obj.quantity);
+	}
+	
+	if(obj.enablePayment){
+		$("#form-payment-detail").show();
+		$("#form-amount").val(obj.paymentAmount);
+		
+		if(obj.paymentType == "0"){
+			$("#form-amount").removeAttr("disabled");
+		}else{
+			$("#form-amount").attr("disabled", true);
+			
+			if(obj.requireApproval == "1"){
+				if(obj.paymentApproval == "0"){
+					$("#form-payment-detail").hide();
+				}else{
+					$("#form-payment-detail").show();
+				}
+			}
+		}
+	}
+	
+	
+	cal.manipulate(obj);	
+}
 </script>
